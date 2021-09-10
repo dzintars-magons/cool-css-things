@@ -1,0 +1,167 @@
+@use 'sass:map';
+@use '2-mixins/px-to-rem-convert' as *;
+
+/*
+    =========
+    Typography
+    =========
+*/
+
+
+//background colors
+$primary-bg: #fff; 
+$secondary-bg: #66B933;
+$tertiary-bg: #000;
+
+//headings in pixels, but will be converted to rems
+$h1: rem(64);
+$h2: rem(30);
+$h3: rem(20);
+$h4: rem(18);
+$h5: rem(16);
+$h6: rem(16);
+$p: rem(18);
+
+$font-family: 'Roboto', sans-serif;
+
+//font weight variables
+$regular:   400;
+$medium:    500;
+$semi-bold: 600;
+$bold:      700;
+
+$primary-line-height: 1.5;
+
+//font colors
+$primary-font-color: #010100;
+$secondary-font-color: #fff;
+
+//FONT-PROPERTIES MAP
+
+// large-heading and paragraph are examples here
+//you can add and change the naming yourself and you will have classes of the same name with font-sizes starting from these correspdonding breakpoints
+//you can also delete a breakpoint if you don't need a change in font-size starting from that specific breakpoint
+//breakpoints to use : xs, sm, md, lg, xl, xxl ; Will work only breakpoints that are also specified in $grid-breakpoints-start sass map
+
+$font-properties:
+    (
+        "large-heading" : 
+        (
+            "font-family" : $font-family,
+            "font-weight" : $regular,
+            "line-height" : $primary-line-height,
+            "color" : $primary-font-color,
+            "margin-bottom" : 22px,
+            "font-size-breakpoints" : (
+                "xs" : 45px,
+                "sm" : 45px,
+                "md" : 45px,
+                "lg" : 75px,
+                "xl" : 75px,
+                "xxl" : 75px
+            )
+        ),
+        "paragraph" : 
+        (   
+            "font-family" : $font-family,
+            "font-weight" : $regular,
+            "line-height" : $primary-line-height,
+            "color" : $primary-font-color,
+            "margin-bottom" : 18px,
+            "font-size-breakpoints" : (
+                "xs" : 20px,
+                "sm" : 22px,
+                "md" : 22px,
+                "lg" : 30px,
+                "xl" : 44px,
+                "xxl" : 44px
+            )
+        )
+    );
+    
+/*
+    =========
+    Responsive
+    =========
+*/
+
+//GRID Breakpoints INFO
+
+$grid-columns: 12;
+$grid-gutter-width: rem(30px);
+
+//grid-breakpoints start value
+$grid-breakpoints-start: (
+    sm: em(576px),
+    md: em(768px),
+    lg: em(992px),
+    xl: em(1200px),
+    xxl: em(1400px)
+);
+//grid breakpoints end value
+$grid-breakpoints-end: (
+    xs: em(575px),
+    sm: em(767px),
+    md: em(991px),
+    lg: em(1199px),
+    xl: em(1399px)
+);
+//max widths for grid containers
+$container-max-widths: (
+  sm: rem(540px),
+  md: rem(720px),
+  lg: rem(960px),
+  xl: rem(1140px),
+  xxl: rem(1320px)
+);
+
+$mobile-end: map.get($grid-breakpoints-end, xs); 
+//sm
+$sm-start: map.get($grid-breakpoints-start, sm);
+$sm-end: map.get($grid-breakpoints-end, sm);
+//md
+$md-start: map.get($grid-breakpoints-start, md);
+$md-end: map.get($grid-breakpoints-end, md);
+//lg
+$lg-start: map.get($grid-breakpoints-start, lg);
+$lg-end: map.get($grid-breakpoints-end, lg);
+//xl
+$xl-start: map.get($grid-breakpoints-start, xl);
+$xl-end: map.get($grid-breakpoints-end, xl);
+//xxl
+$xxl-start: map.get($grid-breakpoints-start, xxl);
+
+/*
+    =========
+    Other
+    =========
+*/
+
+$bg-gradient-from: #222228;
+$bg-gradient-to: #33333C;
+
+//Buttons
+
+$button-color: #66B933;
+$button-font-size: 1.6rem;
+$button-padding: 0.5em 1.5em;
+$button-margin: 0;
+
+//Spacing 
+
+$header-padding: 30px;
+$section-padded: 3rem;
+$margin-bottom-primary: 1.6rem; //used in base as default for paragraphs and all headings
+$margin-bottom-secondary: 1.2rem;
+$margin-bottom-tertiary: 1rem;
+
+$padding-top-primary: $margin-bottom-primary;
+$padding-top-secondary: $margin-bottom-secondary;
+$padding-top-tertiary: $margin-bottom-tertiary;
+
+//Extra
+$popup-box-shadow: 2px 0px 25px rgba(#9A9EA6, .6);
+$aspect-ratio-box-height: 315px;
+$aspect-ratio-box-width: 560px;
+$aspect-ratio-box-text: 5vw;
+

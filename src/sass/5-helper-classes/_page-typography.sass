@@ -1,0 +1,33 @@
+@use '1-variables/variables' as *
+@use '2-mixins/px-to-rem-convert' as *
+
+@each $class-name, $property in $font-properties
+    @each $prop-key, $prop-value in $property
+        @if $prop-key == font-family
+            .#{$class-name}
+                font-family: $prop-value
+        @if $prop-key == font-weight
+            .#{$class-name}
+                font-weight: $prop-value
+        @if $prop-key == line-height
+            .#{$class-name}
+                line-height: $prop-value
+        @if $prop-key == color
+            .#{$class-name}
+                color: $prop-value
+        @if $prop-key == margin-bottom
+            .#{$class-name}
+                margin-bottom: rem($prop-value)
+        @each $breakpoint-value, $value in $prop-value
+            @if $breakpoint-value == xs
+                .#{$class-name}
+                    font-size: rem($value)
+            @else
+                @each $grid-breakpoint, $grid-breakpoint-value in $grid-breakpoints-start
+                    @if $breakpoint-value == $grid-breakpoint
+                        .#{$class-name}
+                            @media (min-width: #{$grid-breakpoint-value})
+                                font-size: rem($value)
+
+        
+        
