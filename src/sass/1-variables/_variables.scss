@@ -1,4 +1,5 @@
 @use 'sass:map';
+@use 'sass:color';
 @use '2-mixins/px-to-rem-convert' as *;
 
 /*
@@ -9,6 +10,8 @@
 
 
 //background colors
+$background: color.adjust(#fff, $blackness: 10%);
+// @debug color.adjust(#fff, $blackness: 30%);
 $primary-bg: #fff; 
 $secondary-bg: #66B933;
 $tertiary-bg: #000;
